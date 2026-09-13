@@ -1,14 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gerald Adli — Data Scientist & Machine Learning Engineer Portfolio" />
-    <title>Gerald Adli · Data Scientist</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <meta
+      name="description"
+      content="Gerald Adli — applied machine learning, data science, and research in medical imaging, precision agriculture, and wireless networks."
+    />
+    <title>Gerald Adli — Applied ML & Data Science</title>
+    <script>
+      // Apply the theme before first paint. Storage is optional.
+      (() => {
+        let saved;
+        try {
+          saved = localStorage.getItem("portfolio-theme");
+        } catch {}
+        document.documentElement.dataset.theme =
+          saved === "dark" || saved === "light"
+            ? saved
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
