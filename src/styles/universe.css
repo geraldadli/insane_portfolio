@@ -42,11 +42,6 @@
   line-height: 1.15;
   letter-spacing: -0.035em;
 }
-.universe-intro h3 > span {
-  display: inline;
-  font-size: 28px;
-  margin-right: 12px;
-}
 .universe-group-headline {
   font-size: 19px;
   line-height: 1.65;
@@ -90,9 +85,19 @@
   font-size: 11px;
   font-variant-numeric: tabular-nums;
 }
-.universe-emoji {
-  font-size: 34px;
-  line-height: 1.5;
+.project-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: var(--media-radius);
+  background: var(--bg);
+  color: var(--text);
+}
+.project-icon svg {
+  width: 24px;
+  height: 24px;
 }
 .universe-card h3,
 .universe-card h4 {

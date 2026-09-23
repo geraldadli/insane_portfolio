@@ -11,8 +11,8 @@ function UniverseCard({ project, index, total }) {
     >
       <ScrollReveal>
         <div className="universe-card-meta">
-          <span className="universe-emoji" aria-hidden="true">
-            {project.emoji}
+          <span className="project-icon" aria-hidden="true">
+            <Icon name={project.icon} />
           </span>
           <span>
             {String(index + 1).padStart(2, "0")} /{" "}
@@ -119,10 +119,7 @@ export default function Projects() {
                   <p className="eyebrow">
                     {group.chapter} / {group.theme}
                   </p>
-                  <h3 id={`${group.id}-title`}>
-                    <span aria-hidden="true">{group.emoji}</span>
-                    {group.name}
-                  </h3>
+                  <h3 id={`${group.id}-title`}>{group.name}</h3>
                 </div>
                 <div className="universe-group-summary">
                   <p className="universe-group-headline">{group.headline}</p>
