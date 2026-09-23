@@ -688,7 +688,7 @@
   border-radius: var(--card-radius);
   background: var(--surface);
 }
-.skill-category h3 {
+.skill-category h4 {
   margin: 25px 0 15px;
   font-size: var(--card-title-size);
   line-height: 1.15;
@@ -790,4 +790,17 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px 40px;
+}
+
+.skills-subsection + .skills-subsection {
+  margin-top: var(--heading-space);
+}
+.skills-subheading {
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.skills-subsection .skills-category-grid {
+  margin-top: 0;
 }
