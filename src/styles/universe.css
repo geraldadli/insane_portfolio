@@ -1,0 +1,219 @@
+.universe-section {
+  padding: 120px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+.universe-heading {
+  max-width: 800px;
+}
+.universe-heading h2 {
+  margin: 24px 0;
+  font-size: clamp(58px, 7.5vw, 104px);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+.universe-heading > p:last-child {
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.65;
+}
+.universe-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: 56px 0 100px;
+}
+.universe-nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  border-block: 1px solid var(--line);
+  font-size: 14px;
+}
+.universe-nav a:hover {
+  color: var(--accent);
+}
+.universe-nav-number {
+  color: var(--muted);
+  font-size: 11px;
+}
+.universe-nav svg {
+  width: 16px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.universe-group {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(36px, 6vw, 90px);
+  padding-bottom: 100px;
+  align-items: start;
+}
+.universe-intro h3 {
+  margin: 24px 0;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+.universe-intro h3 > span {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.universe-group-headline {
+  font-size: 19px;
+  line-height: 1.65;
+  max-width: 340px;
+}
+.universe-mission {
+  margin-top: 32px;
+  max-width: 320px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+.universe-mission > span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+.universe-count {
+  display: block;
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.universe-cards {
+  display: grid;
+  gap: 32px;
+}
+.universe-card {
+  padding: clamp(26px, 3.5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+}
+.universe-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.universe-emoji {
+  font-size: 34px;
+  line-height: 1.5;
+}
+.universe-card h4 {
+  margin: 28px 0 14px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+.universe-tagline {
+  font-size: 18px;
+  line-height: 1.55;
+}
+.universe-flow {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 10px 0;
+  padding: 26px 0;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+.universe-flow li {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.universe-flow li:not(:last-child)::after {
+  content: "→";
+  display: inline-block;
+  margin-inline: 9px;
+}
+.universe-description {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.universe-link {
+  margin-top: 24px;
+  min-height: 44px;
+}
+.universe-status {
+  margin: 28px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.universe-status > div + div {
+  margin-top: 18px;
+}
+.universe-status dt {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.universe-status dd {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+/* The compact chapter introduction pins; cards keep their natural document flow. */
+@media (min-width: 900px) and (min-height: 760px) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .universe-intro {
+    position: sticky;
+    top: 130px;
+  }
+}
+@media (max-width: 899px) {
+  .universe-group {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 72px;
+  }
+  .universe-intro h3 > span {
+    display: inline;
+    font-size: 28px;
+    margin-right: 12px;
+  }
+  .universe-group-headline,
+  .universe-mission {
+    max-width: 560px;
+  }
+  .universe-count {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .universe-section {
+    padding-top: 76px;
+  }
+  .universe-nav {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 36px 0 64px;
+  }
+  .universe-nav a + a {
+    border-top: 0;
+  }
+  .universe-card {
+    border-radius: 18px;
+  }
+  .universe-cards {
+    gap: 20px;
+  }
+  .nav-links {
+    gap: 6px;
+  }
+  .nav-links a {
+    font-size: 11px;
+  }
+}

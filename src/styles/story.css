@@ -657,3 +657,149 @@
     opacity: 1;
   }
 }
+
+/* Project navigation and the dedicated skills section share the story's reveal. */
+.project-index-grid,
+.skills-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.project-index-grid {
+  margin: -35px 0 90px;
+}
+.project-index-card,
+.skill-category {
+  height: 100%;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.project-index-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 225px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.project-index-card:hover {
+  border-color: var(--subtle);
+  background: var(--bg);
+}
+.project-index-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.project-index-card h3,
+.skill-category h3 {
+  margin: 25px 0 15px;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  font-weight: 500;
+}
+.project-index-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.project-index-action svg {
+  width: 15px;
+}
+.skills-section {
+  padding: 110px 0;
+  border-bottom: 1px solid var(--line);
+}
+.skills-category-grid {
+  margin-top: 45px;
+}
+.skill-category > p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 9px;
+  margin: 25px 0 0;
+  padding: 0;
+}
+.skill-tags li {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  font-size: 12px;
+}
+.skills-focus {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.skills-focus > p + p {
+  margin-top: 15px;
+  max-width: 850px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+@media (max-width: 767px) {
+  .project-index-grid,
+  .skills-category-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .project-index-grid {
+    margin: -15px 0 60px;
+  }
+  .project-index-card,
+  .skill-category {
+    padding: 25px;
+  }
+  .project-index-card {
+    min-height: 210px;
+  }
+  .skills-section {
+    padding-block: 70px;
+  }
+}
+@media (max-width: 600px) {
+  /* A second row keeps navigation visible with useful touch targets. */
+  html {
+    scroll-padding-top: 130px;
+  }
+  .nav {
+    height: auto;
+    min-height: 112px;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-block: 10px 4px;
+  }
+  .nav-actions {
+    margin-left: auto;
+  }
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 12px;
+    padding-block: 8px;
+  }
+}

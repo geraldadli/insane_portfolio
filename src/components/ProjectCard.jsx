@@ -16,11 +16,14 @@ export default function ProjectCard({ project }) {
     "(min-width: 900px) and (min-height: 660px) and (pointer: fine)",
   );
   return (
-    <article className="project-story" aria-labelledby={`${project.id}-title`}>
+    <article
+      className="project-story"
+      id={`project-${project.number}`}
+      aria-labelledby={`${project.id}-title`}
+    >
       <ScrollReveal className="story-heading">
         <p className="eyebrow">
-          {project.number} / {project.category} /{" "}
-          {project.year}
+          {project.number} / {project.category} / {project.year}
         </p>
         <h3 id={`${project.id}-title`}>
           {project.title.split("\n").map((line) => (

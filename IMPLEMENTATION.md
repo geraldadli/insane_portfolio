@@ -16,25 +16,30 @@ The production build is written to `dist/`. Deployment is unchanged.
 
 1. **Introduction:** the headline gently recedes as the user leaves; the biography, links, and credentials enter in stages.
 2. **Approach:** a pinned, full-screen statement illuminates three lines in sequence as the user scrolls.
-3. **Featured projects:** each tells three chapters: the question, the approach, and the evidence. The illustration stays alongside the scrolling copy, zooms gradually, reveals feature annotations, then recedes behind the reported result.
-4. **Further research:** the network and cognitive research sections reveal their illustrations, explanations, and links separately.
-5. **Background:** the biography and publication figures lead into three toolkit stages and the community section.
-6. **Contact:** the final headline, invitation, and contact actions enter in sequence.
+3. **My Project Universe:** eight apps span Computer Festival (Show), Course Projects (Learn), and Dream Projects (Dream). Category introductions stay alongside the cards on tall desktop screens. Each card reveals its premise, workflow, description, and supplied demo link in sequence.
+4. **Research & papers:** two featured papers tell three chapters: the question, the approach, and the evidence. The illustration stays alongside the scrolling copy and reveals annotations, then the reported result. Two further papers reveal their illustrations, explanations, and links separately.
+5. **Skills & Tools:** four groups cover languages, machine learning, data visualization, and development platforms.
+6. **Background:** the biography and publication figures lead into three toolkit stages and the community section.
+7. **Contact:** the final headline, invitation, and contact actions enter in sequence.
 
 ## 3. Component map
 
-| File | Purpose |
-| --- | --- |
-| `src/components/motion/ScrollReveal.jsx` | Reusable scroll-scrubbed reveal; lightweight touch reveal; static reduced-motion branch |
-| `src/components/Statement.jsx` | Pinned three-line approach statement |
-| `src/components/ProjectCard.jsx` | Three-chapter project story, sticky artwork, progress rail, chapter anchors, normal-flow fallback |
-| `src/components/ProjectVisual.jsx` | Original scalable research illustrations; `.feature-mark` groups revealed during the approach chapter |
-| `src/data/projects.js` | Three chapters per featured project, pipeline labels, results, links, and further research descriptions |
-| `src/styles/story.css` | Story spacing, sticky dimensions, scene transitions, mobile and reduced-motion layouts |
-| `src/index.css` | Base typography, theme tokens, shared controls and page shell |
-| `src/hooks/useMediaQuery.js` | Live media-query changes with listener cleanup |
+| File                                     | Purpose                                                                                                 |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `src/components/motion/ScrollReveal.jsx` | Reusable scroll-scrubbed reveal; lightweight touch reveal; static reduced-motion branch                 |
+| `src/components/Statement.jsx`           | Pinned three-line approach statement                                                                    |
+| `src/components/Projects.jsx`            | Three project groups and reusable app cards with staged reveals                                         |
+| `src/data/projectUniverse.js`            | Eight user-supplied apps, workflows, optional URLs, and explicit research scope                         |
+| `src/components/Research.jsx`            | Dedicated four-paper overview and existing research stories                                             |
+| `src/styles/universe.css`                | Project cards, category layout, and responsive sticky introductions                                     |
+| `src/components/ProjectCard.jsx`         | Three-chapter project story, sticky artwork, progress rail, chapter anchors, normal-flow fallback       |
+| `src/components/ProjectVisual.jsx`       | Original scalable research illustrations; `.feature-mark` groups revealed during the approach chapter   |
+| `src/data/projects.js`                   | Three chapters per featured project, pipeline labels, results, links, and further research descriptions |
+| `src/styles/story.css`                   | Story spacing, sticky dimensions, scene transitions, mobile and reduced-motion layouts                  |
+| `src/index.css`                          | Base typography, theme tokens, shared controls and page shell                                           |
+| `src/hooks/useMediaQuery.js`             | Live media-query changes with listener cleanup                                                          |
 
-`src/main.jsx` imports the base stylesheet first and the story stylesheet second. The CSS import order matters.
+`src/main.jsx` imports the base stylesheet, story stylesheet, then universe stylesheet. The CSS import order matters.
 
 ## 4. Configure a project
 
@@ -49,13 +54,13 @@ Project stories use an untransformed layout wrapper as the scroll target:
 ```jsx
 const { scrollYProgress } = useScroll({
   target: ref,
-  offset: ['start center', 'end center'],
-})
+  offset: ["start center", "end center"],
+});
 const scale = useTransform(
   scrollYProgress,
   [0, 0.45, 0.8, 1],
   [0.93, 1.08, 1, 1],
-)
+);
 ```
 
 A native sticky column stays 105px from the top while three ordinary document sections scroll past. Each chapter reserves at least 76svh, providing time to read. Chapter boundaries are cached from their rendered heights and remeasured with ResizeObserver when content or viewport dimensions change, so the active chapter stays aligned even when text wraps. React state changes only at chapter boundaries; artwork scale, rotation, and the progress line use Motion values.
@@ -69,12 +74,12 @@ References: [Motion useScroll](https://motion.dev/docs/react-use-scroll), [CSS p
 ## 6. Reuse the reveal
 
 ```jsx
-import ScrollReveal from './components/motion/ScrollReveal'
+import ScrollReveal from "./components/motion/ScrollReveal";
 
 <ScrollReveal distance={36}>
   <h2>A headline worth pausing for.</h2>
   <p>The explanation that follows it.</p>
-</ScrollReveal>
+</ScrollReveal>;
 ```
 
 On desktop, the element resolves from 36px below and half opacity to its final appearance between 96% and 62% of viewport height. Values follow scroll directly and reverse naturally. Use separate wrappers for content that should arrive at separate points. Avoid wrapping sticky ancestors in a transformed reveal; the measurement and pinned containers should stay untransformed.
@@ -100,4 +105,8 @@ Run `npm run build`, then check:
 - Enable Reduce Motion: verify all content remains visible without parallax, pinning, or reveal transitions.
 - Switch themes and reload to confirm persistence.
 
-The original Skills, Experience, and Education files remain in the repository but are not mounted; background information is consolidated in the active About section.
+Projects, Research, and Skills & Tools have separate header anchors. Research retains the four-paper overview and existing story anchors. Project apps use descriptive IDs and only show external actions when a URL is supplied. Owi Detector explicitly distinguishes comment collection and labeling from its future validated-detection goal. Edit app content in `src/data/projectUniverse.js`; edit paper content in `src/data/projects.js`.
+
+App cards reuse ScrollReveal, so content stays in document order with no layout-size animation. Category introductions pin only on fine-pointer screens at least 900px wide and 760px high without reduced motion. Touch, short-screen, and reduced-motion layouts remain in normal flow. The five header destinations share a second row on narrow phones.
+
+The original Experience and Education files remain in the repository but are not mounted; background information is consolidated in the active About section.

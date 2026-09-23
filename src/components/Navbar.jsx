@@ -38,7 +38,9 @@ export default function Navbar() {
           gerald adli<span>.</span>
         </a>
         <div className="nav-links">
-          <a href="#work">Work</a>
+          <a href="#work">Projects</a>
+          <a href="#research">Research</a>
+          <a href="#skills">Skills &amp; Tools</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
