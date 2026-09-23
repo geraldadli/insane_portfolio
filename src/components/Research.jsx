@@ -1,5 +1,4 @@
 import { projects, otherResearch } from "../data/projects";
-import ProjectCard from "./ProjectCard";
 import Icon from "./ui/Icon";
 import ScrollReveal from "./motion/ScrollReveal";
 
@@ -13,93 +12,40 @@ export default function Research() {
       <div className="container">
         <ScrollReveal className="section-heading">
           <div>
-            <p className="eyebrow">RESEARCH &amp; APPLIED MACHINE LEARNING</p>
+            <p className="eyebrow">MY RESEARCH</p>
             <h2 id="research-title">
               Research & papers<span className="accent">.</span>
             </h2>
           </div>
-          <p>
-            Follow the question.{" "}
-            <br />
-            Explore the approach. See the evidence.
-          </p>
+          <p>A few studies I’ve worked on.</p>
         </ScrollReveal>
-        <nav className="project-index-grid" aria-label="Explore the papers">
-          {[...projects, ...otherResearch].map((project) => (
-            <ScrollReveal key={project.number}>
-              <a
-                className="project-index-card"
-                href={`#project-${project.number}`}
+        <div className="research-card-grid">
+          {[...projects, ...otherResearch].map((paper) => (
+            <ScrollReveal key={paper.number}>
+              <article
+                className="universe-card research-paper"
+                id={`project-${paper.number}`}
+                aria-labelledby={`paper-${paper.number}-title`}
               >
-                <span className="project-index-meta">
-                  <span>
-                    {project.number} / {project.category}
-                  </span>
-                  <span>{project.year}</span>
-                </span>
-                <h3>{project.name}</h3>
-                <span className="project-index-action">
-                  Explore the paper <Icon name="down" />
-                </span>
-              </a>
-            </ScrollReveal>
-          ))}
-        </nav>
-        <div className="project-list">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-        <ScrollReveal className="more-work-heading">
-          <span className="eyebrow">THE CURIOSITY CONTINUES</span>
-          <span className="muted">
-            Different domains. The same drive to understand.
-          </span>
-        </ScrollReveal>
-        <div className="research-stories">
-          {otherResearch.map((item) => (
-            <article
-              className="research-story"
-              id={`project-${item.number}`}
-              key={item.number}
-            >
-              <ScrollReveal className="research-story-art">
-                <span className="research-number" aria-hidden="true">
-                  {item.number}
-                </span>
-                <div
-                  className={`signal-art signal-${item.number}`}
-                  aria-hidden="true"
-                >
-                  {Array.from({ length: 12 }, (_, i) => (
-                    <i key={i} style={{ "--i": i }} />
-                  ))}
+                <div className="universe-card-meta">
+                  <span>{paper.category}</span>
+                  <span>{paper.year}</span>
                 </div>
-              </ScrollReveal>
-              <div>
-                <ScrollReveal>
-                  <p className="eyebrow">
-                    {item.category} / {item.year}
-                  </p>
-                  <h3>{item.title}</h3>
-                </ScrollReveal>
-                <ScrollReveal>
-                  <p className="research-story-name">{item.name}</p>
-                  <p className="research-story-copy">{item.description}</p>
-                </ScrollReveal>
-                <ScrollReveal>
-                  <a
-                    className="text-link"
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Explore this research <Icon name="diagonal" />
-                    <span className="sr-only">: {item.name}</span>
-                  </a>
-                </ScrollReveal>
-              </div>
-            </article>
+                <h3 id={`paper-${paper.number}-title`}>{paper.name}</h3>
+                <p className="universe-description">{paper.description}</p>
+                <a
+                  className="text-link universe-link"
+                  href={paper.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View research <Icon name="diagonal" />
+                  <span className="sr-only">
+                    : {paper.name} (opens in a new tab)
+                  </span>
+                </a>
+              </article>
+            </ScrollReveal>
           ))}
         </div>
         <ScrollReveal>
@@ -109,7 +55,7 @@ export default function Research() {
             target="_blank"
             rel="noreferrer"
           >
-            All research, code & evaluation figures <Icon name="diagonal" />
+            All research on GitHub <Icon name="diagonal" />
           </a>
         </ScrollReveal>
       </div>

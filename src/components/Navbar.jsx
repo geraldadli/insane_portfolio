@@ -35,13 +35,14 @@ export default function Navbar() {
     <header className="site-header">
       <nav className="container nav" aria-label="Main navigation">
         <a className="wordmark" href="#home" aria-label="Gerald Adli, home">
-          gerald adli<span>.</span>
+          <img src="/favicon.svg" width="48" height="48" alt="" />
         </a>
         <div className="nav-links">
+          <a href="#about">About</a>
           <a href="#work">Projects</a>
           <a href="#research">Research</a>
-          <a href="#skills">Skills &amp; Tools</a>
-          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#certificates">Certificates</a>
           <a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">

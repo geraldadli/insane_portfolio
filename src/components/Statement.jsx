@@ -3,11 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import useMediaQuery from "../hooks/useMediaQuery";
 import ScrollReveal from "./motion/ScrollReveal";
 
-const lines = [
-  "Start with a question.",
-  "Build with intention.",
-  "Let the evidence speak.",
-];
+const lines = ["Find a problem.", "Build a solution.", "Test the result."];
 export default function Statement() {
   const reduced = useMediaQuery("(prefers-reduced-motion: reduce)");
   const wide = useMediaQuery(
@@ -17,7 +13,7 @@ export default function Statement() {
     return (
       <section className="statement statement-flow" aria-label="My approach">
         <div className="container">
-          <p className="eyebrow">THE THREAD THROUGH MY WORK</p>
+          <p className="eyebrow">HOW I WORK</p>
           {lines.map((line) => (
             <ScrollReveal key={line}>
               <p className="statement-line">{line}</p>
@@ -41,7 +37,7 @@ function PinnedStatement() {
       aria-label="My approach"
     >
       <div className="statement-pin container">
-        <p className="eyebrow">THE THREAD THROUGH MY WORK</p>
+        <p className="eyebrow">HOW I WORK</p>
         <div>
           {lines.map((line, i) => (
             <StatementLine
@@ -53,18 +49,18 @@ function PinnedStatement() {
           ))}
         </div>
         <div className="statement-bottom">
-          <span>From an idea to an evaluated system.</span>
-          <span aria-hidden="true">SCROLL TO DISCOVER ↓</span>
+          <span>Build, test, and improve.</span>
+          <span aria-hidden="true">SCROLL FOR PROJECTS ↓</span>
         </div>
       </div>
     </section>
   );
 }
 function StatementLine({ line, index, progress }) {
-  const color = useTransform(
+  const opacity = useTransform(
     progress,
     [index * 0.27, index * 0.27 + 0.18],
-    ["#758070", "#f1f4ec"],
+    [0.45, 1],
   );
   const x = useTransform(
     progress,
@@ -72,7 +68,7 @@ function StatementLine({ line, index, progress }) {
     [index * 12, 0],
   );
   return (
-    <motion.p className="statement-line" style={{ color, x }}>
+    <motion.p className="statement-line" style={{ opacity, x }}>
       {line}
     </motion.p>
   );

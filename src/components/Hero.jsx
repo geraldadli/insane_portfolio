@@ -47,21 +47,21 @@ function HeroContent() {
         <span className="status-dot" /> APPLIED MACHINE LEARNING & DATA SCIENCE
       </div>
       <h1 id="hero-title">
-        Intelligent systems.
+        Building projects.
         <br />
-        <span>Meaningful impact.</span>
+        <span>Learning as I go.</span>
       </h1>
       <ScrollReveal>
         <div className="hero-bottom">
           <div>
             <p className="hero-description">
-              I’m Gerald. I turn complex data into thoughtful,
-              <br className="desktop-break" /> evaluated systems — from medical
-              imaging to precision agriculture.
+              I’m Gerald, a Computer Science student.
+              <br className="desktop-break" /> I build apps and study machine
+              learning.
             </p>
             <div className="hero-links">
               <a className="button button-primary" href="#work">
-                Explore my work <Icon name="down" />
+                View my projects <Icon name="down" />
               </a>
               <a
                 className="text-link"
@@ -76,8 +76,9 @@ function HeroContent() {
           <div className="hero-note">
             <span className="tiny-cross">+</span>
             <p>
-              One question.
-              <br />A world of possibilities.
+              Code.
+              <br />
+              Test. Learn.
             </p>
             <span className="note-line" />
           </div>

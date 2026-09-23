@@ -1,9 +1,10 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Statement from "./components/Statement";
 import Projects from "./components/Projects";
+import GitHubActivity from "./components/GitHubActivity";
 import Research from "./components/Research";
 import Skills from "./components/Skills";
+import Certificates from "./components/Certificates";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -16,12 +17,15 @@ export default function App() {
       </a>
       <Navbar />
       <main id="main">
-        <Hero />
+        <div id="home">
+          <About />
+        </div>
         <Statement />
         <Projects />
+        <GitHubActivity />
         <Research />
         <Skills />
-        <About />
+        <Certificates />
         <Contact />
       </main>
       <Footer />

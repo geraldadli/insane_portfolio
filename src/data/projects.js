@@ -8,10 +8,10 @@ export const projects = [
     number: "01",
     category: "Medical imaging",
     year: "2025",
-    title: "A clearer view.\nA smarter model.",
+    title: "Classifying\nbrain MRI scans.",
     name: "Brain tumour MRI classification",
     description:
-      "Exploring hybrid deep learning to distinguish four brain MRI classes, with interpretability built into the pipeline.",
+      "Classifies four types of brain MRI scans and uses SHAP to help explain predictions.",
     tags: ["PyTorch", "Vision Transformer", "Bidirectional GRU"],
     metric: "92.6%",
     metricLabel: "held-out accuracy",
@@ -23,19 +23,19 @@ export const projects = [
     chapters: [
       {
         label: "The question",
-        title: "What can a scan reveal?",
-        body: "Four classes. Subtle differences. This research explores how a model can distinguish glioma, meningioma, pituitary, and no-tumour MRI scans.",
+        title: "Classify four scan types.",
+        body: "This study classifies MRI scans as glioma, meningioma, pituitary, or no tumour.",
         visualLabel: "Observe the input",
       },
       {
         label: "The approach",
-        title: "Find the patterns. Make them interpretable.",
+        title: "Train and explain the model.",
         body: "A Vision Transformer and bidirectional GRU form the hybrid architecture. I owned the full pipeline, from preprocessing and training to SHAP attributions and t-SNE feature projections.",
         visualLabel: "Explore the features",
       },
       {
         label: "The evidence",
-        title: "A result you can examine.",
+        title: "Test on held-out scans.",
         body: "Evaluation on 1,311 held-out scans produced the results below. The code, evaluation figures, and implementation limitations are documented alongside the research.",
         visualLabel: "Evaluate the model",
       },
@@ -48,10 +48,10 @@ export const projects = [
     number: "02",
     category: "Precision agriculture",
     year: "2026",
-    title: "Learning to look.\nLearning to grow.",
+    title: "Finding crops\nin images.",
     name: "RL-guided active crop localization",
     description:
-      "Turning crop detection into sequential decision-making. An agent learns to refine bounding boxes, one decision at a time.",
+      "A reinforcement learning agent adjusts detection boxes to locate crops in images.",
     tags: ["YOLOv12", "Deep Q-Network", "Streamlit"],
     metric: "0.969",
     metricLabel: "mean intersection over union",
@@ -63,19 +63,19 @@ export const projects = [
     chapters: [
       {
         label: "The question",
-        title: "Can a detector learn where to look?",
-        body: "Crop localization is a question of precision: finding the right region in the image. This work treats that search as a sequence of decisions.",
+        title: "Locate crops in an image.",
+        body: "This study tests whether a series of box adjustments can improve crop detection.",
         visualLabel: "Observe the scene",
       },
       {
         label: "The approach",
-        title: "Observe. Adjust. Learn.",
-        body: "A deep Q-network agent refines CNN detector boxes against an intersection-over-union reward. An interactive Streamlit dashboard brings the decision process into view.",
+        title: "Adjust the detection boxes.",
+        body: "A deep Q-network agent refines CNN detector boxes against an intersection-over-union reward. A Streamlit dashboard shows each decision.",
         visualLabel: "Refine the region",
       },
       {
         label: "The evidence",
-        title: "Precision, measured.",
+        title: "Measure the results.",
         body: "The reported evaluation achieved a mean intersection over union of 0.969 at 0.09 seconds per sample. Explore the study to understand the evaluation setup and its limitations.",
         visualLabel: "Measure the overlap",
       },
@@ -87,20 +87,20 @@ export const projects = [
 export const otherResearch = [
   {
     number: "03",
-    title: "Optimizing the next connection.",
+    title: "Improving wireless networks.",
     name: "RIS-aided 5G MISO networks",
     description:
-      "Exploring deep reinforcement learning for reconfigurable intelligent surface aided wireless networks. Research in network optimization, published in Discover Applied Sciences in 2026.",
+      "Uses reinforcement learning to improve wireless networks. Published in Discover Applied Sciences in 2026.",
     category: "Deep reinforcement learning",
     year: "2026",
     href: `${repo}/04-ris-miso-5g-drl`,
   },
   {
     number: "04",
-    title: "Understanding human signals.",
+    title: "Classifying EEG signals.",
     name: "Cognitive skills & EEG classification",
     description:
-      "Research into cognitive skills through hybrid optimized CNNs for EEG signal classification, with OpenBCI validation. Published in Brain Organoid and Systems Neuroscience Journal in 2025.",
+      "Studies cognitive skills by classifying EEG signals, with OpenBCI validation. Published in Brain Organoid and Systems Neuroscience Journal in 2025.",
     category: "Affective computing",
     year: "2025",
     href: "https://scholar.google.com/citations?user=o5RjtT0AAAAJ&hl=en",

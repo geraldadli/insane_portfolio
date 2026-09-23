@@ -1,6 +1,6 @@
 # Scrollytelling implementation guide
 
-The portfolio is a continuous narrative built with React, Framer Motion, and native CSS sticky positioning. The introductory statement and two featured projects use pinned scenes on suitable desktop screens. Every other content section reveals its headline, explanation, and supporting details as it enters view.
+The portfolio is a continuous narrative built with React, Framer Motion, and native CSS sticky positioning. The introductory statement uses a pinned scene on suitable desktop screens. Research uses four simple cards with the same surface, spacing, typography, and border tokens as project cards. Each paper has one title, a short summary, and an external research link. Every other content section reveals its headline, explanation, and supporting details as it enters view.
 
 ## 1. Run
 
@@ -14,12 +14,11 @@ The production build is written to `dist/`. Deployment is unchanged.
 
 ## 2. Follow the story
 
-1. **Introduction:** the headline gently recedes as the user leaves; the biography, links, and credentials enter in stages.
+1. **About:** one opening introduction with Gerald’s background, links, credentials, and community roles. Both #home and #about lead here. The old Hero is no longer mounted.
 2. **Approach:** a pinned, full-screen statement illuminates three lines in sequence as the user scrolls.
-3. **My Project Universe:** eight apps span Computer Festival (Show), Course Projects (Learn), and Dream Projects (Dream). Category introductions stay alongside the cards on tall desktop screens. Each card reveals its premise, workflow, description, and supplied demo link in sequence.
-4. **Research & papers:** two featured papers tell three chapters: the question, the approach, and the evidence. The illustration stays alongside the scrolling copy and reveals annotations, then the reported result. Two further papers reveal their illustrations, explanations, and links separately.
+3. **My Project Universe:** eight apps span Computer Festival (Show), Course Projects (Learn), and Dream Projects (Dream). Category introductions sit above full-width card grids. Festival and course groups use three columns on desktop; the dream group uses two. Below 1000px the cards stack. Each card reveals its premise, workflow, description, and supplied demo link in sequence.
+4. **Research & papers:** four cards in two columns on desktop and one column on phones. Each card uses a subtle scroll reveal, with a static reduced-motion fallback.
 5. **Skills & Tools:** four groups cover languages, machine learning, data visualization, and development platforms.
-6. **Background:** the biography and publication figures lead into three toolkit stages and the community section.
 7. **Contact:** the final headline, invitation, and contact actions enter in sequence.
 
 ## 3. Component map
@@ -30,7 +29,7 @@ The production build is written to `dist/`. Deployment is unchanged.
 | `src/components/Statement.jsx`           | Pinned three-line approach statement                                                                    |
 | `src/components/Projects.jsx`            | Three project groups and reusable app cards with staged reveals                                         |
 | `src/data/projectUniverse.js`            | Eight user-supplied apps, workflows, optional URLs, and explicit research scope                         |
-| `src/components/Research.jsx`            | Dedicated four-paper overview and existing research stories                                             |
+| `src/components/Research.jsx`            | Four research papers, each shown once as a simple card                                             |
 | `src/styles/universe.css`                | Project cards, category layout, and responsive sticky introductions                                     |
 | `src/components/ProjectCard.jsx`         | Three-chapter project story, sticky artwork, progress rail, chapter anchors, normal-flow fallback       |
 | `src/components/ProjectVisual.jsx`       | Original scalable research illustrations; `.feature-mark` groups revealed during the approach chapter   |
@@ -40,6 +39,8 @@ The production build is written to `dist/`. Deployment is unchanged.
 | `src/hooks/useMediaQuery.js`             | Live media-query changes with listener cleanup                                                          |
 
 `src/main.jsx` imports the base stylesheet, story stylesheet, then universe stylesheet. The CSS import order matters.
+
+The `ProjectCard.jsx` and `ProjectVisual.jsx` components described below are retained reference implementations and are no longer mounted. Their pinned research scenes and chapter links are not part of the current page.
 
 ## 4. Configure a project
 
@@ -96,6 +97,12 @@ On desktop, the element resolves from 36px below and half opacity to its final a
 
 ## 8. Verification
 
+### GitHub activity
+
+`GitHubActivity.jsx` embeds Gerald's public contribution calendar using the [GitHub Chart API](https://ghchart.rshah.org/). It loads on demand, needs no token, and follows the service's cache updates; it is not a real-time counter. The calendar reflects activity visible on the GitHub profile. A direct profile link remains available if the image service fails. The image reserves its dimensions and scrolls horizontally on small screens, with keyboard focus and a text alternative. No new package or client-side secret is needed.
+
+### Checks
+
 Run `npm run build`, then check:
 
 - Desktop: scroll and reverse through all three phases of both projects. The pinned frame should stay stable while the artwork and result change.
@@ -105,8 +112,8 @@ Run `npm run build`, then check:
 - Enable Reduce Motion: verify all content remains visible without parallax, pinning, or reveal transitions.
 - Switch themes and reload to confirm persistence.
 
-Projects, Research, and Skills & Tools have separate header anchors. Research retains the four-paper overview and existing story anchors. Project apps use descriptive IDs and only show external actions when a URL is supplied. Owi Detector explicitly distinguishes comment collection and labeling from its future validated-detection goal. Edit app content in `src/data/projectUniverse.js`; edit paper content in `src/data/projects.js`.
+Projects, Research, and Skills & Tools have separate header anchors. Research shows each paper once in a simple card and retains the existing project-01 through project-04 anchors. Project apps use descriptive IDs and only show external actions when a URL is supplied. Owi Detector explicitly distinguishes comment collection and labeling from its future validated-detection goal. Edit app content in `src/data/projectUniverse.js`; edit paper content in `src/data/projects.js`.
 
-App cards reuse ScrollReveal, so content stays in document order with no layout-size animation. Category introductions pin only on fine-pointer screens at least 900px wide and 760px high without reduced motion. Touch, short-screen, and reduced-motion layouts remain in normal flow. The five header destinations share a second row on narrow phones.
+App cards reuse ScrollReveal, so content stays in document order with no layout-size animation. Category introductions remain in normal flow above the project grid on all screens. The five header destinations share a second row on narrow phones.
 
 The original Experience and Education files remain in the repository but are not mounted; background information is consolidated in the active About section.

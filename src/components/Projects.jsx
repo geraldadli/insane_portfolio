@@ -22,6 +22,23 @@ function UniverseCard({ project, index, total }) {
         <h4 id={`${project.id}-title`}>{project.name}</h4>
         <p className="universe-tagline">{project.tagline}</p>
       </ScrollReveal>
+      {project.video && (
+        <figure className="universe-preview">
+          <video
+            controls
+            playsInline
+            preload="none"
+            poster={project.poster}
+            width="1280"
+            height="720"
+            aria-label={`${project.name} video preview`}
+          >
+            <source src={project.video} type="video/mp4" />
+            <a href={project.video}>Download the {project.name} video</a>
+          </video>
+          <figcaption>{project.name} — project preview.</figcaption>
+        </figure>
+      )}
       <ScrollReveal>
         <ol className="universe-flow" aria-label={`${project.name} workflow`}>
           {project.flow.map((step) => (
@@ -34,7 +51,7 @@ function UniverseCard({ project, index, total }) {
         <ScrollReveal>
           <dl className="universe-status">
             <div>
-              <dt>Current foundation</dt>
+              <dt>Current work</dt>
               <dd>{project.foundation}</dd>
             </div>
             <div>
@@ -71,17 +88,14 @@ export default function Projects() {
       aria-labelledby="work-title"
     >
       <div className="container">
-        <ScrollReveal className="universe-heading">
-          <p className="eyebrow">
-            <span aria-hidden="true">🪐 </span>MY PROJECT UNIVERSE
-          </p>
-          <h2 id="work-title">
-            Show<span className="accent">.</span> Learn
-            <span className="accent">.</span>
-            <br />
-            Dream<span className="accent">.</span>
-          </h2>
-          <p>Working demos. Lessons in practice. Ideas taking shape.</p>
+        <ScrollReveal className="section-heading">
+          <div>
+            <p className="eyebrow">SHOW · LEARN · DREAM</p>
+            <h2 id="work-title">
+              My projects<span className="accent">.</span>
+            </h2>
+          </div>
+          <p>Festival projects, course work, and personal ideas.</p>
         </ScrollReveal>
         <nav className="universe-nav" aria-label="Project chapters">
           {projectUniverse.map((group) => (
@@ -100,22 +114,26 @@ export default function Projects() {
             aria-labelledby={`${group.id}-title`}
           >
             <div className="universe-intro">
-              <ScrollReveal>
-                <p className="eyebrow">
-                  {group.chapter} / {group.theme}
-                </p>
-                <h3 id={`${group.id}-title`}>
-                  <span aria-hidden="true">{group.emoji}</span>
-                  {group.name}
-                </h3>
-                <p className="universe-group-headline">{group.headline}</p>
-                <p className="universe-mission">
-                  <span>THE MISSION</span>
-                  {group.mission}
-                </p>
-                <span className="universe-count">
-                  {group.projects.length} projects to explore
-                </span>
+              <ScrollReveal className="universe-group-heading">
+                <div>
+                  <p className="eyebrow">
+                    {group.chapter} / {group.theme}
+                  </p>
+                  <h3 id={`${group.id}-title`}>
+                    <span aria-hidden="true">{group.emoji}</span>
+                    {group.name}
+                  </h3>
+                </div>
+                <div className="universe-group-summary">
+                  <p className="universe-group-headline">{group.headline}</p>
+                  <p className="universe-mission">
+                    <span>GOAL</span>
+                    {group.mission}
+                  </p>
+                  <span className="universe-count">
+                    {group.projects.length} projects to explore
+                  </span>
+                </div>
               </ScrollReveal>
             </div>
             <div className="universe-cards">

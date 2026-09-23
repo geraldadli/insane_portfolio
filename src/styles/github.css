@@ -1,0 +1,101 @@
+.github-section {
+  padding: 100px 0;
+  border-bottom: 1px solid var(--line);
+  padding-block: var(--section-space);
+}
+.github-section .section-heading {
+  margin-bottom: var(--heading-space);
+}
+.github-card {
+  margin: 0;
+  padding: var(--card-space);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+}
+.github-card-heading,
+.github-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.github-card-heading {
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.github-card-heading > span:last-child {
+  color: var(--muted);
+  font-size: 12px;
+}
+/* Adapt the external SVG labels and contribution cells to the dark palette. */
+.github-chart-frame {
+  position: relative;
+  padding: 20px 16px;
+  min-height: 156px;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: var(--media-radius);
+}
+.github-chart-scroll {
+  overflow-x: auto;
+}
+.github-chart {
+  display: block;
+  width: 100%;
+  min-width: 663px;
+  height: auto;
+}
+.github-chart-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  margin: 0;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.github-card-footer {
+  margin-top: 24px;
+}
+.github-card-footer p,
+.github-scroll-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.github-card-footer .text-link {
+  min-height: 44px;
+}
+.github-scroll-hint {
+  display: none;
+  margin-top: 12px;
+}
+@media (max-width: 899px) {
+  .github-scroll-hint {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .github-section {
+    padding: 70px 0;
+    padding-block: var(--section-space);
+  }
+  .github-card {
+    padding: var(--card-space);
+    border-radius: var(--card-radius);
+  }
+  .github-chart-frame {
+    padding-inline: 10px;
+    background: var(--bg);
+    color: var(--text);
+    border-radius: var(--media-radius);
+  }
+}
+
+:root[data-theme="dark"] .github-chart {
+  filter: invert(0.9) hue-rotate(180deg);
+}
