@@ -5,8 +5,6 @@ export const projectUniverse = [
     chapter: "01",
     theme: "Show",
     name: "Computer Festival",
-    headline: "Three projects for Computer Festival.",
-    mission: "Build demos and explain the results.",
     projects: [
       {
         id: "civic-eye",
@@ -51,8 +49,6 @@ export const projectUniverse = [
     chapter: "02",
     theme: "Learn",
     name: "Course Projects",
-    headline: "Projects from my courses.",
-    mission: "Use what I learn in class.",
     projects: [
       {
         id: "ai-corti",
@@ -88,8 +84,6 @@ export const projectUniverse = [
     chapter: "03",
     theme: "Dream",
     name: "Dream Projects",
-    headline: "Personal ideas I’m developing.",
-    mission: "Try ideas and improve them over time.",
     projects: [
       {
         id: "before",

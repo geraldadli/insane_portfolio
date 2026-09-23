@@ -121,16 +121,6 @@ export default function Projects() {
                   </p>
                   <h3 id={`${group.id}-title`}>{group.name}</h3>
                 </div>
-                <div className="universe-group-summary">
-                  <p className="universe-group-headline">{group.headline}</p>
-                  <p className="universe-mission">
-                    <span>GOAL</span>
-                    {group.mission}
-                  </p>
-                  <span className="universe-count">
-                    {group.projects.length} projects to explore
-                  </span>
-                </div>
               </ScrollReveal>
             </div>
             <div className="universe-cards">
