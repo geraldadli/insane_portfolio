@@ -1,3 +1,4 @@
+import CardReveal from "./motion/CardReveal";
 import { projects, otherResearch } from "../data/projects";
 import Icon from "./ui/Icon";
 import ScrollReveal from "./motion/ScrollReveal";
@@ -20,8 +21,8 @@ export default function Research() {
           <p>A few studies I’ve worked on.</p>
         </ScrollReveal>
         <div className="research-card-grid">
-          {[...projects, ...otherResearch].map((paper) => (
-            <ScrollReveal key={paper.number}>
+          {[...projects, ...otherResearch].map((paper, index) => (
+            <CardReveal key={paper.number} index={index % 2}>
               <article
                 className="universe-card research-paper"
                 id={`project-${paper.number}`}
@@ -45,7 +46,7 @@ export default function Research() {
                   </span>
                 </a>
               </article>
-            </ScrollReveal>
+            </CardReveal>
           ))}
         </div>
         <ScrollReveal>

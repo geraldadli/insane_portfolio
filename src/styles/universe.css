@@ -138,6 +138,42 @@
   font-size: 12px;
   line-height: 1.6;
 }
+.award-feature {
+  padding: 24px;
+}
+.award-feature figure {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+  margin: 0;
+}
+.award-feature img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--media-radius);
+}
+.award-feature figcaption {
+  padding-block: 12px;
+}
+.award-feature h4 {
+  margin-top: 16px;
+  max-width: 14ch;
+}
+@media (max-width: 767px) {
+  .award-feature {
+    padding: var(--card-space);
+  }
+  .award-feature figure {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .award-feature figcaption {
+    padding: 0;
+  }
+}
 .universe-status > div + div {
   margin-top: 18px;
 }

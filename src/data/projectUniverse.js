@@ -10,6 +10,12 @@ export const projectUniverse = [
         id: "civic-eye",
         video: "/videos/civiceye-commercial.mp4",
         poster: "/videos/civiceye-poster.jpg",
+        award: {
+          photo: "/images/civiceye-award.jpeg",
+          title: "Best Commercial Potential",
+          event: "Computer Science Festival 2026",
+          alt: "CivicEye team with their trophy and Best Commercial Potential award at Computer Science Festival 2026.",
+        },
         icon: "city",
         name: "CivicEye",
         tagline: "Report local problems.",
@@ -57,7 +63,7 @@ export const projectUniverse = [
         tagline: "Classify stress from body signals.",
         flow: ["Heartbeat & skin sweat", "Stress classification"],
         description: "Detecting stress from heartbeat and skin sweat signals.",
-        href: "https://stress-classifier.streamlit.app/",
+        href: "https://ai-corti.streamlit.app/",
       },
       {
         id: "emotion-recognition",
@@ -67,6 +73,7 @@ export const projectUniverse = [
         flow: ["Speech", "Model", "Emotion"],
         description:
           "Classifies emotions in speech and shows the results with animations.",
+        href: "https://github.com/geraldadli/speech-emotion-recognition",
       },
       {
         id: "superhoop",
@@ -76,6 +83,7 @@ export const projectUniverse = [
         flow: ["Sense", "Score", "Display"],
         description:
           "Uses Arduino sensors to track scores on a website, with sounds and animations.",
+        href: "https://github.com/MakiKainan/superhoop",
       },
     ],
   },

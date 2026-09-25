@@ -1,3 +1,4 @@
+import CardReveal from "./motion/CardReveal";
 import ScrollReveal from "./motion/ScrollReveal";
 import Icon from "./ui/Icon";
 
@@ -41,8 +42,8 @@ export default function Certificates() {
           <p>Professional certificates I’ve completed.</p>
         </ScrollReveal>
         <div className="research-card-grid">
-          {certificates.map((certificate) => (
-            <ScrollReveal key={certificate.id}>
+          {certificates.map((certificate, index) => (
+            <CardReveal key={certificate.id} index={index % 2}>
               <article
                 className="universe-card certificate-card"
                 aria-labelledby={`${certificate.id}-title`}
@@ -93,7 +94,7 @@ export default function Certificates() {
                   </a>
                 </div>
               </article>
-            </ScrollReveal>
+            </CardReveal>
           ))}
         </div>
       </div>

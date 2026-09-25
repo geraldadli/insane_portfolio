@@ -1,3 +1,4 @@
+import CardReveal from "./motion/CardReveal";
 import ScrollReveal from "./motion/ScrollReveal";
 
 // Data science workflow supplied by Gerald, with libraries from his CV.
@@ -70,8 +71,8 @@ export default function Skills() {
             </h3>
           </ScrollReveal>
           <div className="skills-category-grid">
-            {groups.map((group) => (
-              <ScrollReveal key={group.number}>
+            {groups.map((group, index) => (
+              <CardReveal key={group.number} index={index % 2}>
                 <article
                   className="skill-category"
                   aria-labelledby={`skill-group-${group.number}`}
@@ -85,7 +86,7 @@ export default function Skills() {
                     ))}
                   </ul>
                 </article>
-              </ScrollReveal>
+              </CardReveal>
             ))}
           </div>
           <ScrollReveal className="skills-focus">
@@ -105,7 +106,7 @@ export default function Skills() {
               Soft Skills
             </h3>
           </ScrollReveal>
-          <ScrollReveal>
+          <CardReveal>
             <article
               className="skill-category"
               aria-labelledby="leadership-communication-title"
@@ -116,7 +117,7 @@ export default function Skills() {
               </h4>
               <p>Helping teams stay organized and sharing ideas clearly.</p>
             </article>
-          </ScrollReveal>
+          </CardReveal>
         </section>
       </div>
     </section>
