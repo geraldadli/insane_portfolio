@@ -778,6 +778,35 @@
 }
 
 /* The opening About section is the site's only personal introduction. */
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(32px, 4vw, 64px);
+}
+.about-trailer {
+  margin: 0;
+  min-width: 0;
+}
+.about-trailer video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--card-radius);
+  background: #000;
+}
+.about-trailer figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 999px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
 #about .hero-description {
   max-width: 620px;
 }
