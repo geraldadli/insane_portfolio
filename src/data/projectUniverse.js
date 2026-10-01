@@ -62,7 +62,8 @@ export const projectUniverse = [
         name: "AI Corti",
         tagline: "Classify stress from body signals.",
         flow: ["Heartbeat & skin sweat", "Stress classification"],
-        description: "Detecting stress from heartbeat and skin sweat signals.",
+        description:
+          "Built for the Deep Learning course. Classifies stress using heartbeat and skin sweat signals.",
         href: "https://ai-corti.streamlit.app/",
       },
       {
@@ -72,7 +73,7 @@ export const projectUniverse = [
         tagline: "Recognize emotions in speech.",
         flow: ["Speech", "Model", "Emotion"],
         description:
-          "Classifies emotions in speech and shows the results with animations.",
+          "Built for the Speech Recognition course. Classifies emotions in speech and shows the results with animations.",
         href: "https://github.com/geraldadli/speech-emotion-recognition",
       },
       {
@@ -82,7 +83,7 @@ export const projectUniverse = [
         tagline: "Track basketball scores.",
         flow: ["Sense", "Score", "Display"],
         description:
-          "Uses Arduino sensors to track scores on a website, with sounds and animations.",
+          "Built for the Embedded System course. Uses Arduino sensors to track scores on a website, with sounds and animations.",
         href: "https://github.com/MakiKainan/superhoop",
       },
       {
