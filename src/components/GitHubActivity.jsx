@@ -22,7 +22,7 @@ export default function GitHubActivity() {
               GitHub activity<span className="accent">.</span>
             </h2>
           </div>
-          <p>My contributions over the past year.</p>
+          <p>My contributions <span>over the past year</span>.</p>
         </ScrollReveal>
         <ScrollReveal>
           <figure className="github-card">

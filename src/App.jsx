@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+import useMediaQuery from "./hooks/useMediaQuery";
 import Navbar from "./components/Navbar";
 import Statement from "./components/Statement";
 import Projects from "./components/Projects";
@@ -10,6 +14,23 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
+  const nativeScroll = useMediaQuery("(prefers-reduced-motion: reduce), (pointer: coarse)");
+  useEffect(() => {
+    if (nativeScroll) return;
+    const scroll = new Lenis({ autoRaf: true, lerp: 0.075 });
+    // Cancel wheel momentum before the browser follows an in-page link.
+    const followAnchor = (event) => {
+      if (!event.target.closest('a[href^="#"]')) return;
+      scroll.stop();
+      scroll.start();
+    };
+    document.addEventListener("click", followAnchor, true);
+    return () => {
+      document.removeEventListener("click", followAnchor, true);
+      scroll.destroy();
+    };
+  }, [nativeScroll]);
+
   return (
     <>
       <a className="skip-link" href="#main">

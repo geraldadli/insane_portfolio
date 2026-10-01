@@ -2,18 +2,18 @@ import { projectUniverse } from "../data/projectUniverse";
 import ScrollReveal from "./motion/ScrollReveal";
 import Icon from "./ui/Icon";
 import CardReveal from "./motion/CardReveal";
+import ViewportVideo from "./ui/ViewportVideo";
 
 function UniverseCard({ project, index, total }) {
   return (
     <CardReveal
       as="article"
       index={index}
-      className="universe-card"
+      className={`universe-card project-entry ${project.video || project.image ? "project-with-media" : ""}`}
       id={project.id}
       aria-labelledby={`${project.id}-title`}
     >
-      <div>
-        <div className="universe-card-meta">
+      <div className="universe-card-meta">
           <span className="project-icon" aria-hidden="true">
             <Icon name={project.icon} />
           </span>
@@ -21,24 +21,18 @@ function UniverseCard({ project, index, total }) {
             {String(index + 1).padStart(2, "0")} /{" "}
             {String(total).padStart(2, "0")}
           </span>
-        </div>
-        <h4 id={`${project.id}-title`}>{project.name}</h4>
-        <p className="universe-tagline">{project.tagline}</p>
       </div>
       {project.video && (
         <figure className="universe-preview">
-          <video
-            controls
-            playsInline
-            preload="none"
+          <ViewportVideo
+            src={project.video}
             poster={project.poster}
             width="1280"
             height="720"
             aria-label={`${project.name} video preview`}
           >
-            <source src={project.video} type="video/mp4" />
             <a href={project.video}>Download the {project.name} video</a>
-          </video>
+          </ViewportVideo>
           <figcaption>{project.name} — project preview.</figcaption>
         </figure>
       )}
@@ -58,7 +52,11 @@ function UniverseCard({ project, index, total }) {
           <figcaption>{project.image.caption}</figcaption>
         </figure>
       )}
-      <div>
+      <div className="project-entry-heading">
+        <h4 id={`${project.id}-title`}>{project.name}</h4>
+        <p className="universe-tagline">{project.tagline}</p>
+      </div>
+      <div className="project-entry-copy">
         <ol className="universe-flow" aria-label={`${project.name} workflow`}>
           {project.flow.map((step) => (
             <li key={step}>{step}</li>
@@ -67,7 +65,7 @@ function UniverseCard({ project, index, total }) {
         <p className="universe-description">{project.description}</p>
       </div>
       {project.foundation && (
-        <div>
+        <div className="project-entry-status">
           <dl className="universe-status">
             <div>
               <dt>Current work</dt>
@@ -81,7 +79,7 @@ function UniverseCard({ project, index, total }) {
         </div>
       )}
       {project.href && (
-        <div>
+        <div className="project-entry-action">
           <a
             className="text-link universe-link"
             href={project.href}
@@ -109,12 +107,12 @@ export default function Projects() {
       <div className="container">
         <ScrollReveal className="section-heading">
           <div>
-            <p className="eyebrow">SHOW · LEARN · DREAM</p>
+            <p className="eyebrow">( SELECTED WORK )</p>
             <h2 id="work-title">
-              My projects<span className="accent">.</span>
+              Projects<span className="accent">.</span>
             </h2>
           </div>
-          <p>Festival projects, course work, and personal ideas.</p>
+          <p>Festival projects, <span>course work</span>, and personal ideas.</p>
         </ScrollReveal>
         <nav className="universe-nav" aria-label="Project chapters">
           {projectUniverse.map((group) => (
@@ -151,7 +149,6 @@ export default function Projects() {
                   total={group.projects.length}
                 />
               ))}
-            </div>
             {group.projects.filter((project) => project.award).map((project) => (
               <CardReveal key={`${project.id}-award`} className="universe-card award-feature">
                 <figure>
@@ -181,6 +178,7 @@ export default function Projects() {
                 </figure>
               </CardReveal>
             ))}
+            </div>
           </section>
         ))}
       </div>

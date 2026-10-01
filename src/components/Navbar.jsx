@@ -3,22 +3,8 @@ import Icon from "./ui/Icon";
 
 export default function Navbar() {
   const [theme, setTheme] = useState(
-    () => document.documentElement.dataset.theme || "light",
+    () => document.documentElement.dataset.theme || "dark",
   );
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const update = () => {
-      let saved;
-      try {
-        saved = localStorage.getItem("portfolio-theme");
-      } catch {
-        /* Storage is optional. */
-      }
-      if (!saved) setTheme(media.matches ? "dark" : "light");
-    };
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
@@ -26,7 +12,7 @@ export default function Navbar() {
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
     try {
-      localStorage.setItem("portfolio-theme", next);
+      localStorage.setItem("portfolio-experiment-theme", next);
     } catch {
       /* Keep working without storage. */
     }
@@ -46,7 +32,7 @@ export default function Navbar() {
           <a href="#contact">Contact</a>
         </div>
         <div className="nav-actions">
-          <span className="location">Jakarta, ID</span>
+          <a className="nav-contact" href="#contact">Let’s talk <Icon name="diagonal" /></a>
           <button
             className="icon-button theme-toggle"
             onClick={toggleTheme}

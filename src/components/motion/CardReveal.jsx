@@ -12,7 +12,7 @@ export default function CardReveal({ children, as = "div", index = 0, ...props }
   const inView = useInView(ref, { margin: "0px 0px -40px 0px" });
   const [focused, setFocused] = useState(false);
   const Component = as === "article" ? motion.article : motion.div;
-  const hidden = { opacity: 0, y: compact ? 14 : 32, scale: compact ? 1 : 0.975 };
+  const hidden = { opacity: 0, y: compact ? 18 : 56, scale: compact ? 1 : 0.98 };
 
   return (
     <Component
@@ -21,9 +21,9 @@ export default function CardReveal({ children, as = "div", index = 0, ...props }
       initial={reduced ? false : hidden}
       animate={reduced || inView || focused ? visible : hidden}
       transition={{
-        duration: reduced || focused || !inView ? 0 : compact ? 0.45 : 0.75,
-        delay: reduced || focused || compact || !inView ? 0 : index * 0.08,
-        ease: [0.22, 1, 0.36, 1],
+        duration: reduced || focused || !inView ? 0 : compact ? 0.45 : 0.85,
+        delay: reduced || focused || compact || !inView ? 0 : (index % 2) * 0.08,
+        ease: [0.16, 1, 0.3, 1],
       }}
       onFocusCapture={() => setFocused(true)}
       onBlurCapture={(event) => {

@@ -18,7 +18,7 @@ export default function Research() {
               Research & papers<span className="accent">.</span>
             </h2>
           </div>
-          <p>A few studies I’ve worked on.</p>
+          <p>Studies in <span>applied machine learning</span>.</p>
         </ScrollReveal>
         <div className="research-card-grid">
           {[...projects, ...otherResearch].map((paper, index) => (

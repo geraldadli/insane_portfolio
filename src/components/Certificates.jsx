@@ -39,7 +39,7 @@ export default function Certificates() {
               Certificates<span className="accent">.</span>
             </h2>
           </div>
-          <p>Professional certificates I’ve completed.</p>
+          <p>Professional certificates <span>I’ve completed</span>.</p>
         </ScrollReveal>
         <div className="research-card-grid">
           {certificates.map((certificate, index) => (

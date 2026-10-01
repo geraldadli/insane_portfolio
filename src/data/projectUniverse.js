@@ -111,15 +111,6 @@ export const projectUniverse = [
     name: "Dream Projects",
     projects: [
       {
-        id: "before",
-        icon: "compare",
-        name: "Before",
-        tagline: "Compare before and after photos.",
-        flow: ["Before capture", "After capture", "Reveal", "Share"],
-        description:
-          "An Android app for before-and-after photos, with drafts, swipe comparisons, reminders, and video exports.",
-      },
-      {
         id: "owi-detector",
         icon: "investigate",
         name: "Owi Detector",
