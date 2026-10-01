@@ -138,6 +138,13 @@
   font-size: 12px;
   line-height: 1.6;
 }
+.universe-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--media-radius);
+}
 .award-feature {
   padding: 24px;
 }
@@ -293,6 +300,9 @@
   min-width: 0;
 }
 @media (min-width: 1000px) {
+  #course-projects .universe-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .universe-cards > .universe-card {
     padding: 28px;
   }

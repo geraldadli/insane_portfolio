@@ -85,6 +85,22 @@ export const projectUniverse = [
           "Uses Arduino sensors to track scores on a website, with sounds and animations.",
         href: "https://github.com/MakiKainan/superhoop",
       },
+      {
+        id: "slops",
+        icon: "sticker",
+        name: "SLOPS Sticker Booth",
+        tagline: "Design your own stickers.",
+        image: {
+          src: "/images/slops-sticker-booth.png",
+          alt: "SLOPS sticker editor showing a pink typography preview beside text and font controls.",
+          width: 1891,
+          height: 861,
+          caption: "Venture Creation · Project preview",
+        },
+        flow: ["Enter text", "Choose a style", "Pick a shape", "Export PNG"],
+        description:
+          "Built for Venture Creation. A local sticker booth where visitors choose text, fonts, accessible colors, and die-cut shapes, then export high-resolution, print-ready PNGs.",
+      },
     ],
   },
   {

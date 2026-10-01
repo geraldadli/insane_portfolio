@@ -42,6 +42,22 @@ function UniverseCard({ project, index, total }) {
           <figcaption>{project.name} — project preview.</figcaption>
         </figure>
       )}
+      {project.image && (
+        <figure className="universe-preview">
+          <a href={project.image.src} target="_blank" rel="noreferrer"
+            aria-label={`View ${project.name} screenshot (opens in a new tab)`}>
+            <img
+              src={project.image.src}
+              alt={project.image.alt}
+              width={project.image.width}
+              height={project.image.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+          <figcaption>{project.image.caption}</figcaption>
+        </figure>
+      )}
       <div>
         <ol className="universe-flow" aria-label={`${project.name} workflow`}>
           {project.flow.map((step) => (

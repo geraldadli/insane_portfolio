@@ -19,6 +19,7 @@ export default function Icon({ name = "arrow", ...props }) {
       <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M9 7l6 10m-2-10L9 17M6 12h12" />
     ),
     pulse: <path d="M2 12h5l3-7 4 14 3-7h5" />,
+    sticker: <path d="M14 21H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8l-7 7Zm0 0v-4a3 3 0 0 1 3-3h4" />,
     waveform: <path d="M3 10v4m4-8v12m5-15v18m5-15v12m4-8v4" />,
     hoop: (
       <>
