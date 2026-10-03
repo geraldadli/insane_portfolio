@@ -18,6 +18,7 @@ export const projects = [
     context: "1,311 scans · 0.93 weighted F1",
     role: "First author",
     href: `${repo}/01-brain-tumor-vit-gru`,
+    paperHref: "https://link.springer.com/chapter/10.1007/978-3-031-94302-7_10",
     visual: "brain",
     pipeline: ["MRI", "ViT-B/16", "BiGRU", "4 classes"],
     chapters: [
@@ -58,6 +59,7 @@ export const projects = [
     context: "0.09 s / sample · reported evaluation",
     role: "Co-author · Elsevier, 2026",
     href: `${repo}/03-crop-localization-rl`,
+    paperHref: "https://www.sciencedirect.com/science/article/pii/S2214317326000624",
     visual: "crop",
     pipeline: ["YOLOv12", "DQN", "IoU reward"],
     chapters: [
@@ -94,6 +96,7 @@ export const otherResearch = [
     category: "Deep reinforcement learning",
     year: "2026",
     href: `${repo}/04-ris-miso-5g-drl`,
+    paperHref: "https://link.springer.com/article/10.1007/s42452-025-08078-8",
   },
   {
     number: "04",
@@ -103,6 +106,8 @@ export const otherResearch = [
       "Studies cognitive skills by classifying EEG signals, with OpenBCI validation. Published in Brain Organoid and Systems Neuroscience Journal in 2025.",
     category: "Affective computing",
     year: "2025",
-    href: "https://scholar.google.com/citations?user=o5RjtT0AAAAJ&hl=en",
+    href: "https://github.com/geraldadli/research-portfolio",
+    githubLabel: "GitHub portfolio",
+    paperHref: "https://spj.science.org/doi/pdf/10.34133/bosn.0003?referrer=https%3A%2F%2Fscholar.google.com%2F",
   },
 ];

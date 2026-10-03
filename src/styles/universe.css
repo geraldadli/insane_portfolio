@@ -275,9 +275,15 @@
 .research-paper .universe-description {
   margin-bottom: 24px;
 }
-.research-paper .universe-link {
+.research-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   margin-top: auto;
   padding-top: 12px;
+}
+.research-actions .universe-link {
+  margin-top: 0;
 }
 @media (max-width: 767px) {
   .research-card-grid {

@@ -34,17 +34,30 @@ export default function Research() {
                 </div>
                 <h3 id={`paper-${paper.number}-title`}>{paper.name}</h3>
                 <p className="universe-description">{paper.description}</p>
-                <a
-                  className="text-link universe-link"
-                  href={paper.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View research <Icon name="diagonal" />
-                  <span className="sr-only">
-                    : {paper.name} (opens in a new tab)
-                  </span>
-                </a>
+                <div className="research-actions">
+                  <a
+                    className="text-link universe-link"
+                    href={paper.paperHref}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Read paper <Icon name="diagonal" />
+                    <span className="sr-only">
+                      : {paper.name} (opens in a new tab)
+                    </span>
+                  </a>
+                  <a
+                    className="text-link universe-link"
+                    href={paper.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {paper.githubLabel || "GitHub"} <Icon name="diagonal" />
+                    <span className="sr-only">
+                      : {paper.name} (opens in a new tab)
+                    </span>
+                  </a>
+                </div>
               </article>
             </CardReveal>
           ))}
